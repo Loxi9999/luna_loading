@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="effect-slicer.min.css">
+  <link rel="stylesheet" href="main.css">
+  <title>Luna Loading</title>
+</head>
+<body>
+    <audio id="player" autoplay loop>
+        <source src="theme.mp3" type="audio/mpeg">
+    </audio>
+  	<div id="app">
+		<img class="imgLogo" src="logo.png">
+		<div class="leftText">
+			<span>P</span>Zatrzymaj/Wznów muzykę
+		</div>
+    	<div class="swiper">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<img class="swiper-slicer-image" src="images/1.png" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img class="swiper-slicer-image" src="images/2.png" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img class="swiper-slicer-image" src="images/3.png" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img class="swiper-slicer-image" src="images/4.png" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img class="swiper-slicer-image" src="images/5.png" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img class="swiper-slicer-image" src="images/6.png" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img class="swiper-slicer-image" src="images/7.png" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img class="swiper-slicer-image" src="images/8.png" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img class="swiper-slicer-image" src="images/9.png" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img class="swiper-slicer-image" src="images/10.png" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img class="swiper-slicer-image" src="images/11.png" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img class="swiper-slicer-image" src="images/12.png" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img class="swiper-slicer-image" src="images/13.png" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img class="swiper-slicer-image" src="images/14.png" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img class="swiper-slicer-image" src="images/15.png" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img class="swiper-slicer-image" src="images/16.png" alt="">
+				</div>
+			</div>
+    	</div>
+  	</div>
+    <script>
+        let audio = document.getElementById("player");
+        let playing = true;
+        audio.volume = 0.30;
+        document.onkeydown = function (data) {
+            if (data.which == 80) { // P 
+                if (!playing) {
+                    audio.play();
+                    playing = true;
+                } else if (playing) {
+                    audio.pause();
+                    playing = false;
+                }
+				//mhm loxi tu byl 
+            }
+        };
+    </script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<script src="effect-slicer.min.js"></script>
+    <script>
+		function getRandomInt(min, max) {
+            const minCeiled = Math.ceil(min);
+            const maxFloored = Math.floor(max);
+            return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); 
+		}
+
+		const swiper = new Swiper('.swiper', {
+            initialSlide: getRandomInt(0, 16),
+            modules: [EffectSlicer],
+            effect: 'slicer',
+            slicerEffect: {
+                split: 5,
+            },
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            allowTouchMove: false,
+            direction: 'vertical',
+            speed: 1000,
+            grabCursor: false,
+            autoplay: true,
+		});
+	</script>
+	
+</body>
+</html>
